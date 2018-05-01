@@ -1,0 +1,55 @@
+<!doctype html>
+<html ng-app='myApp'>
+
+<head>
+  <script src="./JS/jquery.min.js"></script>
+  <script src="./JS/angular.min.js"></script>
+  <script src="./JS/angular-route.js"></script>
+  <script src='./script/app.js'></script>
+  <script src='./script/controller/HomeController.js'></script>
+  <script src='./script/controller/myRequestController.js'></script>
+  <script src='./script/controller/newRequestController.js'></script>
+  <script src='./script/controller/approvalController.js'></script>
+  <link rel="stylesheet" href="./CSS/semantic.min.css">
+  <script src="./JS/semantic.min.js"></script>
+</head>
+
+<body>
+  <div class="ui inverted right aligned menu" style="font-style:italic">
+    <div class="item">
+      <h3>Procurement Management System</h3>
+    </div>
+    <a class="item pull right" href="#/!">
+      Home
+    </a>
+    <a class="item" href="#!myRequest">
+      My Request
+    </a>
+    <a class="item" href="#!newRequest">
+      New Request
+    </a>
+    <a class="item" href="#!approvals">
+      Approvals
+    </a>
+
+  </div>
+  <div ng-view></div>
+  <!-- <!-- <div class="ui footer container">
+    <small>
+      <strong>Copyright &copy; 2018
+        <a href="http://www.tatasteel.com/" target="_blank">Tata Steel India.</a>
+      </strong> All rights reserved.</small>
+  </div> -->
+
+  <!-- <style>
+    .footer {
+      left: 0;
+      position: fixed;
+      text-align: center;
+      bottom: 0;
+      width: 100%;
+    }
+  </style> -->
+</body>
+
+</html>
