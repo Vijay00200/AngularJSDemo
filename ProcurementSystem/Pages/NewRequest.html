@@ -1,21 +1,41 @@
 <div class="ui container">
     <h1 style="font-style:italic;text-align:center">New Request Form</h1>
     <div class="ui horizontal divider"></div>
-    <form class="ui form segment">
-        <div class="two wide field">
-            <label>First Name</label>
-            <input type="text" name="first-name" placeholder="First Name">
-        </div>
-        <div class="two field">
-            <label>Last Name</label>
-            <input type="text" name="last-name" placeholder="Last Name">
+    <form class="ui form segment" id="newRequestForm">
+        <div class="four wide field">
+            <label>Requester Name</label>
+            <input type="text" placeholder="Requester Name.." ng-model="request.requesterName">
         </div>
         <div class="field">
-            <div class="ui checkbox">
-                <input type="checkbox" tabindex="0" class="hidden">
-                <label>I agree to the Terms and Conditions</label>
+            <label>Item Description</label>
+            <textarea placeholder="Item description.." rows="4" ng-model="request.itemDescription"></textarea>
+        </div>
+        <div class="equal width fields">
+            <div class="field">
+                <label>Cost</label>
+                <input type="text" placeholder="Amount.." ng-model="request.cost">
+            </div>
+            <div class="field">
+                <label>Department Name</label>
+                <select class="ui dropdown" ng-model="request.department">
+                    <option value="">Select Department</option>
+                    <option value={{department.desc}} ng-repeat="department in $root.departments">{{department.desc}}</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Select Approver</label>
+                <select class="ui dropdown" ng-model="request.approver">
+                    <option value="">Select Approver</option>
+                    <option value={{approver.desc}} ng-repeat="approver in $root.approvers">{{approver.desc}}</option>
+                </select>
             </div>
         </div>
-        <button class="ui button" type="submit">Submit</button>
+        <div class="field">
+            <label>Purpose</label>
+            <textarea placeholder="Purpose.." rows="4" ng-model="request.purpose"></textarea>
+        </div>
+        <div class="field">
+            <button class="ui green button" type="submit" ng-click="submitRequest()">Submit</button>
+        </div>
     </form>
 </div>

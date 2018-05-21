@@ -1,5 +1,33 @@
-<div class="container">
+<div class="ui container">
         <h1 style="font-style:italic;text-align:center">My Request</h1>
         <div class="ui horizontal divider"></div>
-        {{message}}
+        <div class="ui segment">
+                <table class="ui celled striped table">
+                        <thead>
+                                <tr>
+                                        <th>Request ID</th>
+                                        <th>Requester Name</th>
+                                        <th>Item Description</th>
+                                        <th>Cost</th>
+                                        <th>Department</th>
+                                        <th>Purpose</th>
+                                        <th>Approver Name</th>
+                                        <th>Status</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr ng-repeat="item in $root.formData" ng-class="item.status==='Approved'?'positive':item.status==='Pending'?'warning':'negative'">
+                                        <td>{{item.id}}</td>
+                                        <td>{{item.requesterName}}</td>
+                                        <td>{{item.itemDescription}}</td>
+                                        <td>{{item.cost}}</td>
+                                        <td>{{item.department}}</td>
+                                        <td>{{item.purpose}}</td>
+                                        <td>{{item.approver}}</td>
+                                        <td>{{item.status}}</td>
+                                </tr>
+                        </tbody>
+
+                </table>
+        </div>
 </div>

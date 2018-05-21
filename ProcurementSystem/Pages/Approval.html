@@ -1,5 +1,39 @@
-<div class="container">
-        <h1 style="font-style:italic;text-align:center">Approval Dashboard</h1>
+<div class="ui container">
+        <h1 style="font-style:italic;text-align:center">Aproval Dashboard</h1>
         <div class="ui horizontal divider"></div>
-        {{message}}
+        <div class="ui segment">
+                <table class="ui celled striped table">
+                        <thead>
+                                <tr>
+                                        <th>Request ID</th>
+                                        <th>Requester Name</th>
+                                        <th>Item Description</th>
+                                        <th>Cost</th>
+                                        <th>Department</th>
+                                        <th>Purpose</th>
+                                        <th>Approver Name</th>
+                                        <th>Action</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr ng-repeat="item in $root.formData|pendingReqFilter">
+                                        <td>{{item.id}}</td>
+                                        <td>{{item.requesterName}}</td>
+                                        <td>{{item.itemDescription}}</td>
+                                        <td>{{item.cost}}</td>
+                                        <td>{{item.department}}</td>
+                                        <td>{{item.purpose}}</td>
+                                        <td>{{item.approver}}</td>
+                                        <td>
+                                                <div class="ui tiny buttons">
+                                                        <button class="ui negative button" ng-click="reject(item.id)">Reject</button>
+                                                        <div class="or"></div>
+                                                        <button class="ui positive button" ng-click="approve(item.id)">Approve</button>
+                                                </div>
+                                        </td>
+                                </tr>
+                        </tbody>
+
+                </table>
+        </div>
 </div>

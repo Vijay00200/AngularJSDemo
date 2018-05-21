@@ -1,6 +1,38 @@
 (function () {
     var app = angular.module('myApp', ['ngRoute']);
 
+    app.run(function ($rootScope) {
+        $rootScope.formData = [{
+            id: 1,
+            status: 'Pending',
+            approver: "Abhirup",
+            cost: "50000",
+            department: "Information Technology",
+            itemDescription: "Additional Monitor",
+            purpose: "Developement purpose",
+            requesterName: "vijay kumar"
+        }];
+
+        $rootScope.departments = [{
+            id: 1,
+            desc: 'Information Technology'
+        }, {
+            id: 2,
+            desc: 'Blast Furnence'
+        }, {
+            id: 3,
+            desc: 'Security'
+        }];
+
+        $rootScope.approvers = [{
+            id: 1,
+            desc: 'Vijay Kumar'
+        }, {
+            id: 2,
+            desc: 'Abhirup'
+        }]
+    });
+
     app.config(function ($routeProvider) {
         $routeProvider
 
@@ -23,10 +55,10 @@
                 templateUrl: '../Pages/Approval.html',
                 controller: 'approvalController'
             })
-            
-            .otherwise({redirectTo: '/Pages/Error.html'});
+
+            .otherwise({
+                redirectTo: '/Pages/Error.html'
+            });
     });
 
 })();
-
-
